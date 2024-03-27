@@ -1,12 +1,18 @@
-import ListProduit from "../ListProduit";
 
-export default function Homepage({products, Cart}){
+export default function Homepage({changeCurrentPage}){
     
 
     return (
         <section>
-            <h1>Page d'accueil</h1>
-            <ListProduit products={products} Cart={Cart}/>
-        </section>
+            <div className="container mt-4">
+      <div className="jumbotron">
+        <h1 className="display-4">Welcome to our E-Commerce Store</h1>
+        <p className="lead">Discover amazing products and great deals!</p>
+        <hr className="my-4" />
+        <p>Start shopping now.</p>
+        <a className="btn btn-primary btn-lg" onClick={() => changeCurrentPage('store')} role="button">Shop Now</a>
+      </div>
+    </div>
+            </section>
     )
 }

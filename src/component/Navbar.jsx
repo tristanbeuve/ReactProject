@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Panier from './Panier';
 
-function BarNav({changeCurrentPage, products}) {
+function BarNav({changeCurrentPage, products, takeOffCart}) {
 
   const [show, setShow] = useState(false);
 
@@ -21,17 +21,17 @@ function BarNav({changeCurrentPage, products}) {
           <Nav className="me-auto">
             <Nav.Link onClick={() => changeCurrentPage('home')}>Home</Nav.Link>
             <Nav.Link onClick={() => changeCurrentPage('about')}>About</Nav.Link>
-            <Nav.Link  onClick={() => changeCurrentPage('features')}>Features</Nav.Link>
+            <Nav.Link  onClick={() => changeCurrentPage('store')}>Store</Nav.Link>
           </Nav>
-          <Button onClick={handleShow}>Panier </Button>
+          <Button onClick={handleShow}>Cart</Button>
         </Container>
       </Navbar>
       <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                <Offcanvas.Title>Cart</Offcanvas.Title>
             </Offcanvas.Header>
         <Offcanvas.Body>
-            <Panier product={products}/>
+            <Panier products={products} takeOffCart={takeOffCart}/>
         </Offcanvas.Body>
       </Offcanvas>
     </>
