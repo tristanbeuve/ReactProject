@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Panier from './Panier';
 
-function BarNav({changeCurrentPage, products, takeOffCart}) {
+function BarNav({changeCurrentPage, products, takeOffCart, addtoCart}) {
 
   const [show, setShow] = useState(false);
 
@@ -31,7 +31,7 @@ function BarNav({changeCurrentPage, products, takeOffCart}) {
                 <Offcanvas.Title>Cart</Offcanvas.Title>
             </Offcanvas.Header>
         <Offcanvas.Body>
-            <Panier products={products} takeOffCart={takeOffCart}/>
+            <Panier products={products} takeOffCart={takeOffCart} addtoCart={addtoCart}/>
         </Offcanvas.Body>
       </Offcanvas>
     </>

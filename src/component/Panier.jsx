@@ -1,13 +1,17 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import Spinner from 'react-bootstrap/Spinner';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
-function Panier({products, takeOffCart}) {
+function Panier({products, takeOffCart, addtoCart}) {
 
   const cart = products.filter(product => product.quantityCart > 0);
+
+  const calculateTotalCost = () => {
+    return cart.reduce((total, product) => total + (product.price * product.quantityCart), 0);
+  }
   
   return (
     <Container>
@@ -32,12 +36,26 @@ function Panier({products, takeOffCart}) {
                                   <br/>
                                   <span className=''>delivery costs included</span>
                               </Card.Text>
+                              <ButtonGroup>
                               <Button variant="danger" onClick={() => takeOffCart(product) }>Remove</Button>
+                              <Button variant="primary" onClick={() => addtoCart(product) }>Add</Button>
+                              </ButtonGroup>
                             </Card.Body>
                           </Card>
                         </div>
                     </Col>
                 ))}
+                <Col>
+                <Card className="text-center">
+                  <Card.Header>Total cost</Card.Header>
+                  <Card.Body>
+                    <Card.Title>Special title treatment</Card.Title>
+                    <Card.Text>
+                    {calculateTotalCost()} €
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+                </Col>
             </Row>
         </Container>
   );

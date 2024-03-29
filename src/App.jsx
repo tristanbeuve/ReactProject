@@ -28,7 +28,7 @@ function App() {
   }, []);
 
 
-function Cart(product) {
+function addtoCart(product) {
   const newProducts = [...products];
   const updatedProduct = products.find(p => p.id === product.id);
   if (updatedProduct.quantity != 0) {
@@ -54,7 +54,7 @@ function takeOffCart(product) {
   let page = null;
   switch (currentPage) {
     case 'store':
-      page = <Store products={products} Cart={Cart} />
+      page = <Store products={products} addtoCart={addtoCart} />
       history.pushState({ page: 'store'},'','/store')
       break;
     case 'about':
@@ -69,7 +69,7 @@ function takeOffCart(product) {
 
   return (
     <>
-      <BarNav changeCurrentPage={p => setCurrentPage(p)} products={products} takeOffCart={takeOffCart}/>
+      <BarNav changeCurrentPage={p => setCurrentPage(p)} products={products} takeOffCart={takeOffCart} addtoCart={addtoCart}/>
       <main className='md:container md:mx-auto'>
         {page}
       </main>

@@ -1,6 +1,6 @@
 import ListProduit from "../ListProduit";
 
-export default function Store({products, Cart}){
+export default function Store({products, addtoCart}){
     
 
     return (
@@ -18,7 +18,7 @@ export default function Store({products, Cart}){
                 </div>
             </div> 
             
-            <ListProduit products={products} Cart={Cart}/>
+            <ListProduit products={products} addtoCart={addtoCart}/>
         </section>
     )
 }

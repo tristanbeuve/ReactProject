@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 
-export default function ListProduit({ products, Cart }){
+export default function ListProduit({ products, addtoCart }){
 
     return (
         <Container>
@@ -25,7 +25,7 @@ export default function ListProduit({ products, Cart }){
                               <Card.Text>
                               Remaining stocks : {product.quantity}
                               </Card.Text>
-                              <Button variant="primary" onClick={() => Cart(product) }>Add to cart</Button>
+                              <Button variant="primary" onClick={() => addtoCart(product) }>Add to cart</Button>
                             </Card.Body>
                           </Card>
                         </div>
